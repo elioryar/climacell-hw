@@ -8,12 +8,6 @@ from methods import load_data, get_weather_method, get_weather_sum_method
 app = FastAPI()
 
 
-# @app.on_event("startup")
-# async def startup_event():
-#     print("loading data")
-#     load_data()
-
-
 @app.get('/weather/data')
 async def get_weather(lat: float, lon: float):
     try:

@@ -1,14 +1,18 @@
-import uvicorn
 from fastapi import FastAPI, HTTPException
 
 from methods import load_data, get_weather_method, get_weather_sum_method
 
 app = FastAPI()
 
+loaded = False
+
 
 @app.on_event("startup")
 async def startup_event():
-    load_data()
+    global loaded
+    if not loaded:
+        loaded = True
+        load_data()
 
 
 @app.get('/weather/data')

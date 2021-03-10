@@ -4,15 +4,10 @@ from methods import load_data, get_weather_method, get_weather_sum_method
 
 app = FastAPI()
 
-loaded = False
-
 
 @app.on_event("startup")
 async def startup_event():
-    global loaded
-    if not loaded:
-        loaded = True
-        load_data()
+    load_data()
 
 
 @app.get('/weather/data')

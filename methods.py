@@ -3,6 +3,7 @@ from db_handler import db_connection
 
 def load_data():
     # check if need commit
+    print("started")
     db_connection.execute_query("DROP TABLE IF EXISTS forecast")
     db_connection.execute_query("CREATE TABLE forecast(Longitude FLOAT ,"
                                 "Latitude FLOAT,"

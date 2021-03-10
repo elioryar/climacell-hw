@@ -26,5 +26,4 @@ async def get_weather_summarize(lat: float, lon: float):
 
 if __name__ == "__main__":
     load_data()
-    uvicorn.run(app)
-#, host="0.0.0.0", port=os.environ.get('PORT')
+    uvicorn.run(app, host="0.0.0.0", port=os.environ.get('PORT'))

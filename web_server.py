@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI, HTTPException
 
 from methods import load_data, get_weather_method, get_weather_sum_method

@@ -4,12 +4,13 @@ from db_handler import db_connection
 def load_data():
     # check if need commit
     print("started")
-    db_connection.execute_query("DROP TABLE IF EXISTS forecast")
-    db_connection.execute_query("CREATE TABLE forecast(Longitude FLOAT ,"
-                                "Latitude FLOAT,"
-                                "forecast_time DATETIME,"
-                                "Temperature_Celsius FLOAT, "
-                                "Precipitation_Rate FLOAT)")
+    db_connection.execute_query("TRUNCATE TABLE forecast")
+    # db_connection.execute_query("DROP TABLE IF EXISTS forecast")
+    # db_connection.execute_query("CREATE TABLE forecast(Longitude FLOAT ,"
+    #                             "Latitude FLOAT,"
+    #                             "forecast_time DATETIME,"
+    #                             "Temperature_Celsius FLOAT, "
+    #                             "Precipitation_Rate FLOAT)")
 
     db_connection.execute_query(
         "LOAD DATA LOCAL INFILE './csv_files/file1.csv' INTO TABLE climacell_db.forecast FIELDS TERMINATED BY ',' " \

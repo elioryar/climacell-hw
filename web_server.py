@@ -27,6 +27,4 @@ async def get_weather_summarize(lat: float, lon: float):
         raise HTTPException(status_code=500, detail="Failed to get weather summarize")
 
 
-if __name__ == "__main__":
-    print("start")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+

@@ -33,6 +33,10 @@ def get_weather_method(lat: float, lon: float):
 
 def get_weather_sum_method(lat: float, lon: float):
     result = db_connection.fetch_query(
+        f'SELECT * FROM forecast WHERE Longitude= "{lon}" AND Latitude ="{lat}"')
+    if len(result) == 0:
+        return {}
+    result = db_connection.fetch_query(
         f'SELECT MAX(Temperature_Celsius) FROM forecast WHERE Longitude= "{lon}" AND Latitude ="{lat}"')
     res = {"max": {"Temperature": result[0][0]}}
     result = db_connection.fetch_query(

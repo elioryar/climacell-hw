@@ -24,3 +24,4 @@ async def get_weather_summarize(lat: float, lon: float):
         return get_weather_sum_method(lat=lat, lon=lon)
     except Exception as e:
         raise HTTPException(status_code=500, detail="Failed to get weather summarize")
+
